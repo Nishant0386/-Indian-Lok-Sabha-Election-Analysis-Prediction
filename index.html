@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indian Lok Sabha Election Analysis | Nishant Anand</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- PARTICLES -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="nav-logo-icon">🗳️</span>
+      <span>ElectionLens</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#objectives">Analysis</a></li>
+      <li><a href="#findings">Findings</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-badge">INT557 · 2025-26</div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-bg-text">INDIA</div>
+    <div class="hero-content">
+      <div class="hero-label">
+        <span class="pulse-dot"></span>
+        Data Science with Python · Session 2025-26
+      </div>
+      <h1 class="hero-title">
+        <span class="line-reveal">Indian Lok Sabha</span>
+        <span class="line-reveal delay-1">Election Analysis</span>
+        <span class="line-reveal delay-2 accent-text">&amp; Prediction</span>
+      </h1>
+      <p class="hero-subtitle line-reveal delay-3">
+        A comprehensive data science exploration of 62 years of Indian democracy —<br/>
+        from 1962 to 2024, uncovering patterns that shaped the world's largest electorate.
+      </p>
+      <div class="hero-stats line-reveal delay-4">
+        <div class="stat-pill">📅 1962 – 2024</div>
+        <div class="stat-pill">🗺️ 543 Constituencies</div>
+        <div class="stat-pill">🤖 ML Prediction</div>
+        <div class="stat-pill">📊 7 Objectives</div>
+      </div>
+      <div class="hero-cta line-reveal delay-5">
+        <a href="#objectives" class="btn-primary">Explore Analysis</a>
+        <a href="#about" class="btn-ghost">Meet the Analyst</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <span>🗳️ Voter Turnout Rose 55% → 71.3%</span>
+      <span>🏆 BJP: 2 seats (1984) → 302 (2019)</span>
+      <span>💰 Wealth = #1 Predictor of Winning</span>
+      <span>⚖️ Only 14% Women MPs Today</span>
+      <span>🔮 Random Forest Accuracy: 92.91%</span>
+      <span>🗺️ UP Gains +15 Seats After Delimitation</span>
+      <span>🔥 Mumbai NW Won by Just 48 Votes in 2024</span>
+      <span>👮 Criminal Candidates Win MORE Than Clean Ones</span>
+      <span>🗳️ Voter Turnout Rose 55% → 71.3%</span>
+      <span>🏆 BJP: 2 seats (1984) → 302 (2019)</span>
+      <span>💰 Wealth = #1 Predictor of Winning</span>
+      <span>⚖️ Only 14% Women MPs Today</span>
+      <span>🔮 Random Forest Accuracy: 92.91%</span>
+      <span>🗺️ UP Gains +15 Seats After Delimitation</span>
+      <span>🔥 Mumbai NW Won by Just 48 Votes in 2024</span>
+      <span>👮 Criminal Candidates Win MORE Than Clean Ones</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="section-tag">// THE ANALYST</div>
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <div class="photo-frame">
+          <div class="photo-placeholder">
+            <div class="photo-initial">N</div>
+            <div class="photo-glow"></div>
+          </div>
+          <div class="photo-badge">
+            <span>🎓</span> Data Scientist
+          </div>
+        </div>
+        <div class="about-decor-line"></div>
+      </div>
+      <div class="about-text">
+        <h2 class="section-title">Nishant <span class="accent-text">Anand</span></h2>
+        <p class="about-desc">
+          A passionate data science student from <strong>Jalandhar, Punjab</strong>, with a deep curiosity for turning raw numbers into meaningful stories. This project — <em>Indian Lok Sabha Election Analysis & Prediction (1962–2024)</em> — represents months of intensive research, data cleaning, visualization, and machine learning work.
+        </p>
+        <div class="about-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Data Viz</span>
+          <span class="tag">ML Models</span>
+        </div>
+        <div class="course-info">
+          <div class="course-item">
+            <span class="course-label">COURSE</span>
+            <span class="course-val">INT557 — Data Science with Python</span>
+          </div>
+          <div class="course-item">
+            <span class="course-label">SESSION</span>
+            <span class="course-val">2025–26</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJECTIVES OVERVIEW -->
+  <section id="objectives" class="objectives-section">
+    <div class="section-tag">// RESEARCH OBJECTIVES</div>
+    <h2 class="section-title center">7 Questions That <span class="accent-text">Shaped This Project</span></h2>
+    <div class="obj-grid">
+      <div class="obj-card" data-num="01">
+        <div class="obj-icon">📈</div>
+        <h3>Voter Turnout Analysis</h3>
+        <p>How has voter participation changed from 1962 to 2024?</p>
+        <a href="#obj1" class="obj-link">Explore →</a>
+      </div>
+      <div class="obj-card" data-num="02">
+        <div class="obj-icon">🏛️</div>
+        <h3>Party Dominance & Vote Share</h3>
+        <p>How did BJP rise and INC fall from 1984 to 2024?</p>
+        <a href="#obj2" class="obj-link">Explore →</a>
+      </div>
+      <div class="obj-card" data-num="03">
+        <div class="obj-icon">👤</div>
+        <h3>Candidate Profile Analysis</h3>
+        <p>Do criminal candidates win more? Does money &amp; incumbency help?</p>
+        <a href="#obj3" class="obj-link">Explore →</a>
+      </div>
+      <div class="obj-card" data-num="04">
+        <div class="obj-icon">🎯</div>
+        <h3>Winning Margin & Swing Seats</h3>
+        <p>Which seats are safe and which are swing?</p>
+        <a href="#obj4" class="obj-link">Explore →</a>
+      </div>
+      <div class="obj-card" data-num="05">
+        <div class="obj-icon">🤖</div>
+        <h3>ML Model — Predicting Winners</h3>
+        <p>Can a computer predict who will win using past data?</p>
+        <a href="#obj5" class="obj-link">Explore →</a>
+      </div>
+      <div class="obj-card" data-num="06">
+        <div class="obj-icon">🗺️</div>
+        <h3>Delimitation + Women Seats</h3>
+        <p>How many women seats per state after 2027 delimitation?</p>
+        <a href="#obj6" class="obj-link">Explore →</a>
+      </div>
+      <div class="obj-card" data-num="07">
+        <div class="obj-icon">♀️</div>
+        <h3>Women's Reservation Analysis</h3>
+        <p>Historical gap vs 33% target — party &amp; state breakdown.</p>
+        <a href="#obj7" class="obj-link">Explore →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJ 1: VOTER TURNOUT -->
+  <section id="obj1" class="viz-section">
+    <div class="viz-section-inner">
+      <div class="viz-header">
+        <div class="obj-number-big">01</div>
+        <div>
+          <div class="section-tag">// OBJECTIVE 1</div>
+          <h2 class="section-title">Voter <span class="accent-text">Turnout</span> Analysis</h2>
+          <p class="viz-desc">Tracking India's democratic participation from the first election to 2024. Turnout rose from <strong>55.5%</strong> in 1962 to a peak of <strong>71.3%</strong> in 2019, with Lakshadweep consistently leading and Bihar at the bottom.</p>
+        </div>
+      </div>
+      <div class="viz-gallery">
+        <div class="viz-card big">
+          <div class="viz-img-wrap">
+            <img src="viz_1_1_turnout_trend.png" alt="National Voter Turnout 1962-2024" loading="lazy" />
+            <div class="viz-overlay">
+              <span class="viz-zoom">🔍 Click to expand</span>
+            </div>
+          </div>
+          <div class="viz-caption">National Voter Turnout Trend (1962–2024)</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_1_2_states_turnout.png" alt="State-wise Voter Turnout" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">State-wise Voter Turnout 2024</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_1_3_2024_turnout.png" alt="2024 Turnout" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Highest vs Lowest Turnout States</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_1_4_decade_boxplot.png" alt="Decade Boxplot" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Constituency Turnout Spread by Decade</div>
+        </div>
+      </div>
+      <div class="insight-box">
+        <span class="insight-icon">💡</span>
+        <p><strong>Key Insight:</strong> Voter turnout has shown an overall upward trend over 62 years — from 55.5% in 1962 to 71.3% in 2019, though it dipped slightly to 67.2% in 2024. The 2010s saw the highest engagement in India's democratic history.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJ 2: PARTY DOMINANCE -->
+  <section id="obj2" class="viz-section alt-bg">
+    <div class="viz-section-inner">
+      <div class="viz-header">
+        <div class="obj-number-big">02</div>
+        <div>
+          <div class="section-tag">// OBJECTIVE 2</div>
+          <h2 class="section-title">Party <span class="accent-text">Dominance</span> & Vote Share</h2>
+          <p class="viz-desc">The most dramatic political transformation in democratic history. BJP rose from just <strong>2 seats in 1984</strong> to <strong>302 in 2019</strong>, while INC collapsed from <strong>414 to just 52</strong>.</p>
+        </div>
+      </div>
+      <div class="viz-gallery">
+        <div class="viz-card big">
+          <div class="viz-img-wrap">
+            <img src="viz_2_1_seats_trend.png" alt="Seats Won by Each Party" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Seats Won by Each Party (1984–2019)</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_2_2_2024_pie.png" alt="2024 Lok Sabha Results" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">2024 Lok Sabha Results</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_2_3_seat_share.png" alt="Seat Share Percentage" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Seat Share % (1984–2019)</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_2_4_bjp_states.png" alt="Top BJP States" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Top 8 BJP States: 2014 vs 2019</div>
+        </div>
+      </div>
+      <!-- Party Battle Meter -->
+      <div class="party-battle">
+        <h3 class="battle-title">THE GREAT POLITICAL SHIFT</h3>
+        <div class="battle-row">
+          <div class="battle-party bjp-side">
+            <span class="party-name">BJP</span>
+            <div class="battle-bar bjp-bar">
+              <div class="bar-fill bjp-fill" data-width="56"></div>
+            </div>
+            <span class="party-stat">302 seats (2019)</span>
+          </div>
+          <div class="vs-divider">VS</div>
+          <div class="battle-party inc-side">
+            <span class="party-name">INC</span>
+            <div class="battle-bar inc-bar">
+              <div class="bar-fill inc-fill" data-width="10"></div>
+            </div>
+            <span class="party-stat">52 seats (2019)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJ 3: CANDIDATE PROFILE -->
+  <section id="obj3" class="viz-section">
+    <div class="viz-section-inner">
+      <div class="viz-header">
+        <div class="obj-number-big">03</div>
+        <div>
+          <div class="section-tag">// OBJECTIVE 3</div>
+          <h2 class="section-title">Candidate <span class="accent-text">Profile</span> Analysis</h2>
+          <p class="viz-desc">A controversial truth — candidates with criminal cases win at <strong>14%</strong> vs 5.79% for clean candidates. Wealth is even more decisive, with crorepati candidates winning at nearly <strong>4× the rate</strong> of poor candidates.</p>
+        </div>
+      </div>
+      <div class="viz-gallery">
+        <div class="viz-card big">
+          <div class="viz-img-wrap">
+            <img src="viz_3_2_wealth_winrate.png" alt="Wealth Win Rate" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Does Wealth Help Win? Assets vs Win Rate</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_3_1_criminal_winrate.png" alt="Criminal Win Rate" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Criminal Candidates Win MORE</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_3_3_incumbency.png" alt="Incumbency Advantage" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Incumbency Advantage: Returning MPs</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_3_4_age_distribution.png" alt="Age Distribution" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Age Distribution: Winners vs Losers</div>
+        </div>
+      </div>
+      <div class="three-facts">
+        <div class="fact-card red">
+          <div class="fact-num">14%</div>
+          <div class="fact-label">Win rate — Criminal candidates</div>
+        </div>
+        <div class="fact-card gold">
+          <div class="fact-num">27.7%</div>
+          <div class="fact-label">Win rate — Candidates with &gt;₹10Cr assets</div>
+        </div>
+        <div class="fact-card green">
+          <div class="fact-num">19.9%</div>
+          <div class="fact-label">Win rate — Incumbents (Returning MPs)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJ 4: MARGINS -->
+  <section id="obj4" class="viz-section alt-bg">
+    <div class="viz-section-inner">
+      <div class="viz-header">
+        <div class="obj-number-big">04</div>
+        <div>
+          <div class="section-tag">// OBJECTIVE 4</div>
+          <h2 class="section-title">Winning Margin <span class="accent-text">&amp; Swing Seats</span></h2>
+          <p class="viz-desc">Mumbai North West was decided by just <strong>48 votes</strong> in 2024. Nearly <strong>30% of all seats are swing seats</strong> — those with less than 5% winning margin — and they are the kingmakers of every election.</p>
+        </div>
+      </div>
+      <div class="viz-gallery">
+        <div class="viz-card big">
+          <div class="viz-img-wrap">
+            <img src="viz_4_1_seat_types.png" alt="Safe vs Swing Seats" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Safe vs Swing vs Competitive Seats per Year</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_4_2_margin_hist.png" alt="Margin Distribution" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Winning Margin Distribution: 2014 vs 2019</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_4_3_tight_seats.png" alt="Tightest Seats 2024" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Top 10 Most Closely Fought Seats (2024)</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_4_4_state_margins.png" alt="State Margins" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Most Competitive vs Safest States (2004-2019)</div>
+        </div>
+      </div>
+      <div class="swing-banner">
+        <div class="swing-item">
+          <span class="swing-num">48</span>
+          <span class="swing-text">votes separated winner &amp; loser in Mumbai NW (2024)</span>
+        </div>
+        <div class="swing-divider"></div>
+        <div class="swing-item">
+          <span class="swing-num">~30%</span>
+          <span class="swing-text">of all Lok Sabha seats are swing seats (&lt;5% margin)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJ 5: ML MODEL -->
+  <section id="obj5" class="viz-section">
+    <div class="viz-section-inner">
+      <div class="viz-header">
+        <div class="obj-number-big">05</div>
+        <div>
+          <div class="section-tag">// OBJECTIVE 5</div>
+          <h2 class="section-title">ML Model — <span class="accent-text">Predicting Winners</span></h2>
+          <p class="viz-desc">Four machine learning models were trained on historical election data. <strong>Random Forest</strong> emerged as the best with <strong>92.91% accuracy</strong>. The #1 predictor? <strong>Total Assets</strong> — money talks in Indian elections.</p>
+        </div>
+      </div>
+      <div class="viz-gallery">
+        <div class="viz-card big">
+          <div class="viz-img-wrap">
+            <img src="viz_5_3_feature_importance.png" alt="Feature Importance" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">What Predicts a Winner? (Feature Importance)</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_5_1_model_accuracy.png" alt="Model Accuracy" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">ML Model Accuracy Comparison</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_5_2_confusion_matrix.png" alt="Confusion Matrix" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Confusion Matrix — Random Forest</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_5_4_roc_curve.png" alt="ROC Curve" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">ROC Curve: All Models Compared</div>
+        </div>
+      </div>
+      <!-- Model Accuracy Display -->
+      <div class="model-race">
+        <h3 class="battle-title">MODEL ACCURACY RACE</h3>
+        <div class="model-bars">
+          <div class="model-row">
+            <span class="model-name">Random Forest</span>
+            <div class="model-bar-wrap">
+              <div class="model-bar-fill rf" data-width="92.91" style="--target:92.91%"></div>
+            </div>
+            <span class="model-pct">92.91%</span>
+          </div>
+          <div class="model-row">
+            <span class="model-name">Decision Tree</span>
+            <div class="model-bar-wrap">
+              <div class="model-bar-fill dt" data-width="92.84" style="--target:92.84%"></div>
+            </div>
+            <span class="model-pct">92.84%</span>
+          </div>
+          <div class="model-row">
+            <span class="model-name">Logistic Regression</span>
+            <div class="model-bar-wrap">
+              <div class="model-bar-fill lr" data-width="92.84" style="--target:92.84%"></div>
+            </div>
+            <span class="model-pct">92.84%</span>
+          </div>
+          <div class="model-row">
+            <span class="model-name">Gradient Boosting</span>
+            <div class="model-bar-wrap">
+              <div class="model-bar-fill gb" data-width="92.68" style="--target:92.68%"></div>
+            </div>
+            <span class="model-pct">92.68%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJ 6: DELIMITATION -->
+  <section id="obj6" class="viz-section alt-bg">
+    <div class="viz-section-inner">
+      <div class="viz-header">
+        <div class="obj-number-big">06</div>
+        <div>
+          <div class="section-tag">// OBJECTIVE 6</div>
+          <h2 class="section-title">Delimitation <span class="accent-text">&amp; Women Seats</span></h2>
+          <p class="viz-desc">After 2027 delimitation, UP gains a massive <strong>+15 seats</strong> while Tamil Nadu and Kerala each lose <strong>-7</strong>. This reshapes political power — and under the 33% women's reservation rule, it directly impacts women's representation.</p>
+        </div>
+      </div>
+      <div class="viz-gallery">
+        <div class="viz-card big">
+          <div class="viz-img-wrap">
+            <img src="viz_6_1_seat_change.png" alt="Seat Change After Delimitation" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Seat Change After Delimitation (543 seats)</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_6_2_north_south.png" alt="North vs South" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">North vs South: Before &amp; After Delimitation</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_6_3_population.png" alt="Population 2011 vs 2027" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Population 2011 vs 2027 Predicted (Top 10)</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_6_4_women_seats_delimitation.png" alt="Women Seats Delimitation" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Women Seats Per State After Delimitation</div>
+        </div>
+      </div>
+      <div class="north-south-banner">
+        <div class="ns-item north">
+          <div class="ns-region">NORTH</div>
+          <div class="ns-change">231 → <strong>274</strong></div>
+          <div class="ns-tag gain">+43 seats</div>
+        </div>
+        <div class="ns-vs">↔</div>
+        <div class="ns-item south">
+          <div class="ns-region">SOUTH</div>
+          <div class="ns-change">129 → <strong>107</strong></div>
+          <div class="ns-tag loss">-22 seats</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJ 7: WOMEN -->
+  <section id="obj7" class="viz-section">
+    <div class="viz-section-inner">
+      <div class="viz-header">
+        <div class="obj-number-big">07</div>
+        <div>
+          <div class="section-tag">// OBJECTIVE 7</div>
+          <h2 class="section-title">Women's <span class="accent-text">Reservation</span> Analysis</h2>
+          <p class="viz-desc">Women candidates actually have a <strong>higher win rate (10.04%)</strong> than men (6.90%) — yet only <strong>14% of MPs are women today</strong>. The 33% reservation would increase women MPs from ~78 to <strong>181</strong>.</p>
+        </div>
+      </div>
+      <div class="viz-gallery">
+        <div class="viz-card big">
+          <div class="viz-img-wrap">
+            <img src="viz_7_1_women_trend.png" alt="Women in Elections" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Women in Elections: Fielded vs Elected vs 33% Target</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_7_2_party_women.png" alt="Party Women Candidates" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Which Party Fields More Women? (2004-2019)</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_7_3_women_winrate.png" alt="Women Win Rate" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">Women's Representation: Reality vs 33% Target</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-img-wrap">
+            <img src="viz_7_4_state_women.png" alt="State Women Candidates" loading="lazy" />
+            <div class="viz-overlay"><span class="viz-zoom">🔍 Click to expand</span></div>
+          </div>
+          <div class="viz-caption">States Fielding Most Women Candidates (2019)</div>
+        </div>
+      </div>
+      <div class="women-progress">
+        <div class="progress-label">
+          <span>Current: 14% Women MPs (~78 seats)</span>
+          <span>Target: 33% (~181 seats)</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" data-width="42.4"></div>
+          <div class="progress-target-line"></div>
+          <div class="progress-target-label">33%</div>
+        </div>
+        <div class="progress-gap">Gap: <strong>103 more seats needed</strong> to reach 33% reservation target</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINDINGS -->
+  <section id="findings" class="findings-section">
+    <div class="section-tag center">// PROJECT CONCLUSION</div>
+    <h2 class="section-title center">Key <span class="accent-text">Findings</span></h2>
+    <div class="findings-grid">
+      <div class="finding-card" data-obj="Obj 1">
+        <div class="finding-icon">📈</div>
+        <div class="finding-content">
+          <strong>Turnout</strong>
+          <p>Rose from 55% (1962) to 66%+. Lakshadweep highest; Bihar lowest.</p>
+        </div>
+      </div>
+      <div class="finding-card" data-obj="Obj 2">
+        <div class="finding-icon">🏛️</div>
+        <div class="finding-content">
+          <strong>Party Shift</strong>
+          <p>BJP went 2 seats (1984) → 303 (2019). INC collapsed 414 → 52.</p>
+        </div>
+      </div>
+      <div class="finding-card" data-obj="Obj 3">
+        <div class="finding-icon">👤</div>
+        <div class="finding-content">
+          <strong>Candidate Profile</strong>
+          <p>Criminal candidates win MORE. Wealthy candidates win MORE. Incumbents win MORE.</p>
+        </div>
+      </div>
+      <div class="finding-card" data-obj="Obj 4">
+        <div class="finding-icon">🎯</div>
+        <div class="finding-content">
+          <strong>Margins</strong>
+          <p>~30% seats are swing (&lt;5% margin). These decide who forms government.</p>
+        </div>
+      </div>
+      <div class="finding-card" data-obj="Obj 5">
+        <div class="finding-icon">🤖</div>
+        <div class="finding-content">
+          <strong>ML Model</strong>
+          <p>Best model predicts at 92.91% accuracy. <strong>Total Assets</strong> is #1 predictor of winning.</p>
+        </div>
+      </div>
+      <div class="finding-card" data-obj="Obj 6">
+        <div class="finding-icon">🗺️</div>
+        <div class="finding-content">
+          <strong>Delimitation</strong>
+          <p>UP gains +15 seats; Tamil Nadu loses -7. UP gets +5 women seats, Tamil Nadu LOSES -2.</p>
+        </div>
+      </div>
+      <div class="finding-card" data-obj="Obj 7">
+        <div class="finding-icon">♀️</div>
+        <div class="finding-content">
+          <strong>Women</strong>
+          <p>Women win at higher rate than men. But only 14% MPs today. 33% reservation = 181 women MPs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="section-tag center">// THE ANALYST</div>
+    <h2 class="section-title center">Nishant <span class="accent-text">Anand</span></h2>
+    <div class="contact-card">
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-icon">🎓</span>
+          <span>INT557 — Data Science with Python</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📅</span>
+          <span>Session 2025–26</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📊</span>
+          <span>Indian Lok Sabha Election Analysis & Prediction (1962–2024)</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <span>Jalandhar, Punjab, India</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">🗳️ ElectionLens</div>
+      <p>Indian Lok Sabha Election Analysis &amp; Prediction (1962–2024)</p>
+      <p class="footer-credit">Built with ❤️ by <strong>Nishant Anand</strong> · INT557 Data Science with Python · Session 2025-26</p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-overlay"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close">✕</button>
+      <img id="lightbox-img" src="" alt="" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
